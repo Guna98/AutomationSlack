@@ -24,6 +24,7 @@ jobs:
           path: cypress/videos
           retention-days: 30
       - name: Slack Notification
+        if: always()
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
