@@ -1,22 +1,26 @@
 name: Cypress Tests
- 
+
 on: [push]
- 
+
 jobs:
   cypress-test:
     runs-on: ubuntu-latest
     steps:
+      # Step 1: Checkout the repository
       - name: Checkout
         uses: actions/checkout@v4
- 
+
+      # Step 2: Install dependencies
       - name: Install dependencies
         run: npm install
- 
+
+      # Step 3: Run Cypress tests
       - name: Run Cypress tests
         id: cypress
         run: npx cypress run
         continue-on-error: true
- 
+
+      # Step 4: Upload Cypress videos as artifacts
       - name: Upload Cypress Videos
         if: always()
         uses: actions/upload-artifact@v3
@@ -24,20 +28,21 @@ jobs:
           name: cypress-videos
           path: cypress/videos
           retention-days: 30
- 
+
+      # Step 5: Send Slack notification
       - name: Notify Slack
         if: always()
         uses: slackapi/slack-github-action@v1.24.0
         with:
           payload: |
             {
-              "text": "Cypress Test Results",
+              "text": "Cypress Test Results for *${{ github.repository }}*",
               "blocks": [
                 {
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "*Cypress Test Results*\n${{ steps.cypress.outcome == 'success' && '✅ Tests Passed' || '❌ Tests Failed' }}\n<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|View Test Videos and Details>"
+                    "text": "*Cypress Test Results*\n${{ steps.cypress.outcome == 'success' && '✅ All tests passed!' || '❌ Some tests failed.' }}\n<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|Click here to view videos and logs>"
                   }
                 }
               ]
