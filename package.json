@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "run:smoke": "cypress run --spec 'cypress/e2e/Tests/Run_All_Smoke_Tests.cy.js'",
+    "run:smoke": "cypress run --spec 'cypress/e2e/Tests/Login/Login.cy.js'",
     "slack-report": "node slackReporter.js"
   },
   "keywords": [],
