@@ -12,7 +12,6 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@slack/webhook": "^7.0.3",
     "cypress-slack-reporter": "^1.5.4",
     "xlsx": "^0.18.5",
     "xlsx-populate": "^1.21.0"
