@@ -1,7 +1,7 @@
 const { WebhookClient } = require('@slack/webhook');
 
 const sendToSlack = async (testResults) => {
-    const webhookUrl = 'https://hooks.slack.com/services/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'; // Replace with your webhook URL
+    const webhookUrl = 'https://hooks.slack.com/services/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'; // Replace with your webhook URL
     const webhook = new WebhookClient({ url: webhookUrl });
 
     const message = {
