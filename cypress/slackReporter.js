@@ -2,7 +2,7 @@ const { IncomingWebhook } = require('@slack/webhook');
 const fs = require('fs');
 const path = require('path');
 
-const SLACK_WEBHOOK_URL = 'https://hooks.slack.com/services/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';
+const SLACK_WEBHOOK_URL = 'https://hooks.slack.com/services/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';
 const webhook = new IncomingWebhook(SLACK_WEBHOOK_URL);
 
 async function sendCypressVideosToSlack() {
