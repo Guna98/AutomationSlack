@@ -7,7 +7,7 @@ module.exports = defineConfig({
   reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {
     charts: true,
-    reportPageTitle: 'Oren Automation',
+    reportPageTitle: 'Automation',
     embeddedScreenshots: true,
     inlineAssets: true,
     overwrite: true,
