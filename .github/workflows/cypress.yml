@@ -21,6 +21,11 @@ jobs:
           name: cypress-execution-video
           path: cypress/videos
           retention-days: 30
+      - name: Download artifact
+        id: download-artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: cypress-execution-video
       - name: Slack Notification
         if: always()
         uses: rtCamp/action-slack-notify@v2
@@ -28,6 +33,6 @@ jobs:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_USERNAME: Automation
           SLACK_TITLE: Regression Test
-          SLACK_MESSAGE: "Test Automation Report :rocket:\nView the video here: <${{ steps.upload-artifact.outputs.artifact-url }}|Cypress Video>"
+          SLACK_MESSAGE: "Test Automation Report :rocket:\nView the video here: <${{ steps.download-artifact.outputs.artifact-url }}|Cypress Video>"
           SLACK_COLOR: ${{ job.status }}
           
