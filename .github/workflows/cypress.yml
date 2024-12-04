@@ -36,6 +36,5 @@ jobs:
           SLACK_TITLE: Regression Test
           SLACK_MESSAGE: "Test Automation Report :rocket:\nhttps://github.com/Guna98/AutomationSlack/actions/runs/${{github.run_id}}"
           SLACK_COLOR: ${{ job.status }}
-        with:
-          files: ${{ github.workspace }}/cypress/videos/*.mp4
+          SLACK_ATTACHMENTS: '[{"fallback": "Cypress Video", "text": "Cypress Execution Video", "video_url": "https://github.com/Guna98/AutomationSlack/cypress/videos/${{ steps.download-artifact.outputs.artifact_path }}"}]'
           
