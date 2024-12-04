@@ -27,7 +27,9 @@ jobs:
           name: cypress-execution-video
       - name: Set video file name
         id: set-video-name
-        run: echo "VIDEO_FILE_NAME=Login.cy.js.mp4" >> $GITHUB_ENV # Update this to dynamically set the video file name
+        run: |
+          VIDEO_FILE_NAME=$(ls cypress/videos/*.mp4 | xargs -n 1 basename) # Capture the video file name dynamically
+          echo "VIDEO_FILE_NAME=$VIDEO_FILE_NAME" >> $GITHUB_ENV
       - name: Slack Notification
         if: always()
         uses: rtCamp/action-slack-notify@v2
