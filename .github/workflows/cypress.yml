@@ -25,6 +25,9 @@ jobs:
         if: always()
         with:
           name: cypress-execution-video
+      - name: Set video file name
+        id: set-video-name
+        run: echo "VIDEO_FILE_NAME=Login.cy.js.mp4" >> $GITHUB_ENV # Update this to dynamically set the video file name
       - name: Slack Notification
         if: always()
         uses: rtCamp/action-slack-notify@v2
@@ -33,7 +36,7 @@ jobs:
           SLACK_USERNAME: Automation
           SLACK_TITLE: Regression Test
           SLACK_MESSAGE: "Test Automation Report :rocket:\nhttps://github.com/Guna98/AutomationSlack/actions/runs/${{github.run_id}}"
-          SLACK_ATTACHMENTS: '[{"fallback": "Cypress Video", "text": "Cypress Execution Video", "video_url": "https://github.com/Guna98/AutomationSlack/cypress/videos/${{ steps.download-artifact.outputs.artifact_path }}.mp4", "title": "View Video", "title_link": "https://github.com/Guna98/AutomationSlack/cypress/videos/${{ steps.download-artifact.outputs.artifact_path }}.mp4"}]'
+          SLACK_ATTACHMENTS: '[{"fallback": "Cypress Video", "text": "Cypress Execution Video", "video_url": "/home/runner/work/AutomationSlack/AutomationSlack/cypress/videos/${{ env.VIDEO_FILE_NAME }}", "title": "View Video", "title_link": "/home/runner/work/AutomationSlack/AutomationSlack/cypress/videos/${{ env.VIDEO_FILE_NAME }}"}]'
           SLACK_ICON_EMOJI: ':smiley:'
           SLACK_COLOR: ${{ job.status }}
           
