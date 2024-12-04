@@ -34,6 +34,6 @@ jobs:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_USERNAME: Automation
           SLACK_TITLE: Regression Test
-          SLACK_MESSAGE: "Test Automation Report :rocket:\n          SLACK_MESSAGE: "Test Automation Report :rocket:\n https://github.com/Guna98/AutomationSlack/actions/runs/${{github.run_id}}"
+          SLACK_MESSAGE: "Test Automation Report :rocket:\nhttps://github.com/Guna98/AutomationSlack/actions/runs/${{github.run_id}}"
           SLACK_COLOR: ${{ job.status }}
           
