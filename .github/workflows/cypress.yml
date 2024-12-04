@@ -27,8 +27,8 @@ jobs:
         if: always()
         with:
           name: cypress-artifacts
-      - name: Verify Artifact Path
-        run: echo "Artifact path: ${{ steps.download-artifact.outputs.artifact_path }}"
+      - name: Set Artifact Path
+        run: echo "Artifact path: $GITHUB_WORKSPACE/cypress/videos"
       - name: Slack Notification
         if: always()
         uses: rtCamp/action-slack-notify@v2
