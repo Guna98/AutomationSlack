@@ -24,8 +24,8 @@ jobs:
       - name: Download artifact
         id: download-artifact
         uses: actions/download-artifact@v4
-        with:
         if: always()
+        with:
           name: cypress-execution-video
       - name: Slack Notification
         if: always()
