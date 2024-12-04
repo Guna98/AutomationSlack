@@ -34,11 +34,7 @@ jobs:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_USERNAME: Automation
           SLACK_TITLE: Regression Test
-          SLACK_MESSAGE: "Test Automation Report :rocket:\nhttps://github.com/Guna98/AutomationSlack/actions/runs/${{github.run_id}} \n Hi Team,
-
-The automation report is now available, and you can access it in video format for a quick overview of the test results. 📊✨
-Feel free to check it out"
-          SLACK_ATTACHMENTS: '[{"fallback": "Cypress Video", "text": "Cypress Execution Video", "video_url": "https://github.com/Guna98/AutomationSlack/cypress/videos/${{ steps.download-artifact.outputs.artifact_path }}"}]'
+          SLACK_MESSAGE: "Test Automation Report :rocket:\nhttps://github.com/Guna98/AutomationSlack/actions/runs/${{github.run_id}} \nHi Team,\n\nThe automation report is now available, and you can access it in video format for a quick overview of the test results. 📊✨\nFeel free to check it out"
           SLACK_COLOR: ${{ job.status }}
           
         
