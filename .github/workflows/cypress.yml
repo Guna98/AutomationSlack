@@ -28,6 +28,6 @@ jobs:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_USERNAME: Automation
           SLACK_TITLE: Regression Test
-          SLACK_MESSAGE: "Test Automation Report :rocket:"
+          SLACK_MESSAGE: "Test Automation Report :rocket:\nView the video here: <${{ steps.upload-artifact.outputs.artifact-url }}|Cypress Video>"
           SLACK_COLOR: ${{ job.status }}
           
