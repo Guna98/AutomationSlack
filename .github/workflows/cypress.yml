@@ -36,7 +36,7 @@ jobs:
           SLACK_TITLE: Regression Test
           SLACK_MESSAGE: "Test Automation Report :rocket:\nhttps://github.com/Guna98/AutomationSlack/actions/runs/${{github.run_id}}"
           SLACK_ATTACHMENTS: '[{"fallback": "Cypress Video", "text": "Cypress Execution Video", "video_url": "https://github.com/Guna98/AutomationSlack/cypress/videos/${{ steps.download-artifact.outputs.artifact_path }}"}]'
-          SLACK_ICON: 'https://www.flaticon.com/free-icon/copy_10257032?related_id=10257032'
+          SLACK_ICON_EMOJI: 'https://www.flaticon.com/free-icon/copy_10257032?related_id=10257032'
           SLACK_COLOR: ${{ job.status }}
           
         
