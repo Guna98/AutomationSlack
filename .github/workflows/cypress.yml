@@ -26,7 +26,7 @@ jobs:
         uses: actions/download-artifact@v4
         if: always()
         with:
-          name: cypress-execution-video
+          name: cypress-execution-report
       - name: Slack Notification
         if: always()
         uses: rtCamp/action-slack-notify@v2
