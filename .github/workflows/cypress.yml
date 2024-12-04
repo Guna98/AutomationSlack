@@ -27,8 +27,6 @@ jobs:
         if: always()
         with:
           name: cypress-artifacts
-      - name: Set Artifact Path
-        run: echo "Artifact path: $GITHUB_WORKSPACE/cypress/videos"
       - name: Slack Notification
         if: always()
         uses: rtCamp/action-slack-notify@v2
@@ -37,7 +35,7 @@ jobs:
           SLACK_USERNAME: Automation
           SLACK_TITLE: Regression Test
           SLACK_MESSAGE: "Test Automation Report :rocket:\nhttps://github.com/Guna98/AutomationSlack/actions/runs/${{github.run_id}}"
-          SLACK_ATTACHMENTS: '[{"fallback": "Cypress Video", "text": "Cypress Execution Video", "video_url": "https://github.com/Guna98/AutomationSlack/cypress/videos/${{ steps.download-artifact.outputs.artifact_path }}", "title": "View Video", "title_link": "https://github.com/Guna98/AutomationSlack/cypress/videos/${{ steps.download-artifact.outputs.artifact_path }}"}]'
+          SLACK_ATTACHMENTS: '[{"fallback": "Cypress Video", "text": "Cypress Execution Video", "video_url": "https://github.com/Guna98/AutomationSlack/cypress/videos/${{ steps.download-artifact.outputs.artifact_path }}.mp4", "title": "View Video", "title_link": "https://github.com/Guna98/AutomationSlack/cypress/videos/${{ steps.download-artifact.outputs.artifact_path }}.mp4"}]'
           SLACK_ICON_EMOJI: ':smiley:'
           SLACK_COLOR: ${{ job.status }}
           
