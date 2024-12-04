@@ -31,4 +31,4 @@ jobs:
           SLACK_MESSAGE: "Test Automation Report :rocket:"
           SLACK_COLOR: ${{ job.status }}
           SLACK_ICON_EMOJI: ":robot_face:"
-          SLACK_ATTACHMENTS: '[{"color": "#36a64f", "title": "Cypress Test Results", "text": "All tests passed! :tada:", "footer": "Automated Test", "ts": ' + '${{ github.event.head_commit.timestamp }}' + '}]'
+          SLACK_ATTACHMENTS: '[{"color": "' + '${{ job.status }}' + '", "title": "Cypress Test Results", "text": "All tests passed! :tada:", "footer": "Automated Test", "ts": ' + '${{ github.event.head_commit.timestamp }}' + '}]'
