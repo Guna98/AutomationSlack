@@ -17,9 +17,7 @@ jobs:
         if: always()
         with:
           name: cypress-artifacts
-          path: |
-            cypress/videos
-            cypress/reports
+          path: cypress/reports/html
           retention-days: 30
       - name: Download artifact
         id: download-artifact
