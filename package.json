@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "run:smoke": "cypress run --spec 'cypress/e2e/Tests/Login/Login.cy.js'",
+    "smoke": "cypress run --spec 'cypress/e2e/pages/Login_Page/login_page.js'",
     "slack-report": "node slackReporter.js"
   },
   "keywords": [],
@@ -14,7 +14,8 @@
   "dependencies": {
     "cypress-slack-reporter": "^1.5.4",
     "xlsx": "^0.18.5",
-    "xlsx-populate": "^1.21.0"
+    "xlsx-populate": "^1.21.0",
+    "@slack/webhook": "^7.0.3"
   },
   "devDependencies": {
     "cypress": "^13.15.1",
@@ -23,8 +24,6 @@
     "cypress-xpath": "^2.0.1",
     "mochawesome": "^7.1.3",
     "mochawesome-merge": "^4.3.0",
-    "mochawesome-report-generator": "^6.2.0",
-    "@slack/webhook": "^latest"
-
+    "mochawesome-report-generator": "^6.2.0"
   }
 }
