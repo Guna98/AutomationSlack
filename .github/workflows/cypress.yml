@@ -41,6 +41,6 @@ jobs:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_USERNAME: Automation
           SLACK_TITLE: Regression Test
-          SLACK_MESSAGE: "Test Automation Report :rocket
+          SLACK_MESSAGE: "Test Automation Report."
           SLACK_COLOR: ${{ job.status }}
           
