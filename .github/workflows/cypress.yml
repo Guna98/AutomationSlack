@@ -23,7 +23,7 @@ jobs:
           retention-days: 30
       - name: Download artifact
         id: download-artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v6
         with:
           name: cypress-execution-video
       - name: Slack Notification
