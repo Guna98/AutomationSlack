@@ -11,7 +11,7 @@ jobs:
       # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
       - name: Cypress run
-        uses: cypress-io/github-action@v6 # use the explicit version number
+        uses: cypress-io/github-action@v6
         with:
           command: npm run smoke
       - name: Uploading artifacts
@@ -21,7 +21,7 @@ jobs:
           name: cypress-execution-report
           path: cypress/results/*  # Assuming both HTML and video are in this folder
           retention-days: 30
-      - name: Download artifacts
+      - name: Download artifact
         id: download-artifact
         uses: actions/download-artifact@v4
         if: always()
