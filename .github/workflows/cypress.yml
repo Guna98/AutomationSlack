@@ -27,8 +27,7 @@ jobs:
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_USERNAME: Automation
-          SLACK_TITLE: "Regression Test"
+          SLACK_TITLE: Regression Test
           SLACK_MESSAGE: "Test Automation Report :rocket:"
           SLACK_COLOR: ${{ job.status }}
-          SLACK_ICON_EMOJI: ":doll:"
-          SLACK_ATTACHMENTS: '[{"color": "${{ job.status }}", "title": "Cypress Test Results", "text": "All tests passed! :tada:", "footer": "Automated Test", "ts": "${{ github.event.head_commit.timestamp }}"}]'
+          
