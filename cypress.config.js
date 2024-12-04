@@ -1,40 +1,35 @@
 const { defineConfig } = require("cypress");
-const sendCypressVideosToSlack = require('./cypress/slackReporter');
+const {downloadFile} = require('cypress-downloadfile/lib/addPlugin')
+//const sendCypressVideosToSlack = require('./cypress/slackReporter');
 
 module.exports = defineConfig({
-  e2e: {
-    reporter: 'mochawesome',  
-    reporterOptions: {
-      charts: true,
-      reportDir: 'cypress/reports',  
-      overwrite: false,  
-      embeddedScreenshots: true,            
-      html: true,                    
-      json: true                    
-    },
-    video: true,                   
-    screenshotOnRunFailure: true,     
+  video: true,
+  reporter: 'cypress-mochawesome-reporter',
+  reporterOptions: {
+    charts: true,
+    reportPageTitle: 'Oren Automation',
+    embeddedScreenshots: true,
+    inlineAssets: true,
+    overwrite: true,
+    html: true,                    
+    saveAllAttempts: false,
   },
-  setupNodeEvents(on, config) {
-    require('mochawesome/plugin')(on);
-    on('task', {
-      sendTestResults: async (results) => {
-        const testResults = {
-          totalTests: results.totalTests,
-          totalPassed: results.totalPassed,
-          totalFailed: results.totalFailed,
-          duration: results.duration
-        };
-        await after(results);
-        return null;
-      }
-    });
-    
-    async function after(results) {
-      if (results) {
-        await sendCypressVideosToSlack();
-      }
-    }
+  e2e: {
+    watchForFileChanges: false,
+    defaultCommandTimeout:5000,
+    // reporter: "mochawesome",
+    // reporterOptions: {
+    //   charts: true,
+    //   overwrite: false,
+    //   html: true,
+    //   json: true,
+    //   reportDir: "cypress/reports"
+    //},
+    setupNodeEvents(on, config) {
+      // implement node event listeners here
+      screenshotOnRunFailure=true;
+      require('cypress-mochawesome-reporter/plugin')(on);
+      on('task', {downloadFile})
+    },
   },
 });
-
