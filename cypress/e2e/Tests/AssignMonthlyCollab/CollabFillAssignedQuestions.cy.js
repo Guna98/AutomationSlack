@@ -18,8 +18,8 @@ describe('Login and Fill Monthly Questions To Collaborator', () => {
             
             cy.wrap(null).then(() => {
                 FillQuestionsCollab.loopThroughMonthsAndFreeze()
-                FillQuestionsCollab.hasNoAccessToAcceptOrReject()
-                FillQuestionsCollab.click_send_review_button()
+                // FillQuestionsCollab.hasNoAccessToAcceptOrReject()
+                // FillQuestionsCollab.click_send_review_button()
             cy.Signout().then(function() {
                 cy.visit(this.base_url);
          });

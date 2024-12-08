@@ -29,6 +29,8 @@ export class FillMonthlyQuestionsCollab{
     plastic_waste_generated = 'p[class="chakra-text css-j34013"]'
     tab_open = 'p[class="chakra-text css-1xjf0a9"]'
     water_tab = ".css-197tcrq"
+    select_question_waste_generated='p:contains("9a. Waste Generated")'
+
 
 
     
@@ -303,6 +305,7 @@ export class FillMonthlyQuestionsCollab{
 
     click_select_question() {
         // Check the status of the assigned question
+        cy.get(this.select_question_waste_generated).click();
         const statusElements = [this.todo_status];
         const statusMessages = [
             'TO DO status should be visible for the assigned question',

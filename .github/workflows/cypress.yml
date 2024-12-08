@@ -17,7 +17,7 @@ jobs:
         if: always()
         with:
           name: cypress-execution-video
-          path: cypress/videos
+          path: /home/runner/work/AutomationSlack/AutomationSlack/cypress/vi
           retention-days: 30
       - name: Download artifact
         id: download-artifact
@@ -38,7 +38,7 @@ jobs:
           SLACK_USERNAME: Automation
           SLACK_TITLE: Regression Test
           SLACK_MESSAGE: "Test Automation Report :rocket:\nhttps://github.com/Guna98/AutomationSlack/actions/runs/${{github.run_id}}"
-          SLACK_ATTACHMENTS: '[{"fallback": "Cypress Video", "text": "Cypress Execution Video", "video_url": "/home/runner/work/AutomationSlack/AutomationSlack/cypress/videos/${{ env.VIDEO_FILE_NAME }}", "title": "View Video", "title_link": "/home/runner/work/AutomationSlack/AutomationSlack/cypress/videos/${{ env.VIDEO_FILE_NAME }}"}]'
+          SLACK_ATTACHMENTS: '[{"fallback": "Cypress Video", "text": "Cypress Execution Video", "video_url": "deos/${{ env.VIDEO_FILE_NAME }}", "title": "View Video", "title_link": "/home/runner/work/AutomationSlack/AutomationSlack/cypress/videos/${{ env.VIDEO_FILE_NAME }}"}]'
           SLACK_ICON_EMOJI: ':smiley:'
           SLACK_COLOR: ${{ job.status }}
           

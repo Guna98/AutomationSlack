@@ -6,7 +6,7 @@ export class MailinatorLogin {
             emailSubject: 'td:contains("Invitation to Oren")',
             passwordField: 'Password:',
            // skipButton: 'button:contains("Skip")',
-            skipButton: '.css-5zaojw',
+            skipButton: 'button[class="chakra-button css-7wzi72"]',
             nextButton: 'button:contains("Finish")',
             preferencesIcon: '#preferences-geenral-supplier > .chakra-link > svg, #preferences > .chakra-link',
            // personalProfileButton: 'button:contains("Personal Profile")',
@@ -160,7 +160,7 @@ export class MailinatorLogin {
 
     updatePassword(baseUrl, oldPassword,) {
         const elements = this.elements;
-        cy.fixture('collab_data.json').then((collabData) => {
+        cy.fixture('add_supplier.json').then((collabData) => {
             const newPassword = collabData.password;
             cy.origin(baseUrl, { args: { oldPassword, newPassword, elements } }, ({ oldPassword, newPassword, elements }) => {
                 cy.contains(elements.updatePasswordButton).click();
