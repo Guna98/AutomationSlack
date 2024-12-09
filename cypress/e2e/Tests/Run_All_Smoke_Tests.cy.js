@@ -2,10 +2,11 @@
 
 //Before running the tests, make sure to update the fixture file
 
-import './Login/Login.cy.js';
+// import './Login/Login.cy.js';
 
 // import './PageSetup/AddMaterial.cy.js';
-// import './PageSetup/preferences.cy.js';
+// ... existing code ...
+import './PageSetup/preferences.cy.js';
 // import './UserManagement/AddAuditor.cy.js';
 
 // import './Reports/AddBRSRReport.cy.js';
@@ -29,4 +30,6 @@ import './Login/Login.cy.js';
 // import './AssignQuestionsBU/AssignMonthlyQuestionsBU.cy.js';
 
 // import './UserManagement/SupplierBulkUpload.cy.js';
+
+import './PageSetup/preferences.cy.js';
 

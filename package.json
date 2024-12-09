@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "smoke": "npx cypress run --spec 'cypress/e2e/Tests/PageSetup/preferences.cy.js'",
+    "smoke": "npx cypress run --spec 'cypress/e2e/Tests/Run_All_Smoke_Tests.cy.js'",
     "slack-report": "node slackReporter.js"
   },
   "keywords": [],
