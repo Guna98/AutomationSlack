@@ -17,18 +17,14 @@ jobs:
         if: always()
         with:
           name: cypress-execution-video
-          path: /home/runner/work/AutomationSlack/AutomationSlack/cypress/videos/*.mp4
+          path: cypress/videos
+          retention-days: 30
       - name: Download artifact
         id: download-artifact
         uses: actions/download-artifact@v4
         if: always()
         with:
           name: cypress-execution-video
-      - name: Set video file name
-        id: set-video-name
-        run: |
-          VIDEO_FILE_NAME=$(ls cypress/videos/*.mp4 | xargs -n 1 basename) # Capture the video file name dynamically
-          echo "VIDEO_FILE_NAME=$VIDEO_FILE_NAME" >> $GITHUB_ENV
       - name: Slack Notification
         if: always()
         uses: rtCamp/action-slack-notify@v2
@@ -37,8 +33,6 @@ jobs:
           SLACK_USERNAME: Automation
           SLACK_TITLE: Regression Test
           SLACK_MESSAGE: "Test Automation Report :rocket:\nhttps://github.com/Guna98/AutomationSlack/actions/runs/${{github.run_id}}"
-          SLACK_ATTACHMENTS: '[{"fallback": "Cypress Video", "text": "Cypress Execution Video", "video_url": "deos/${{ env.VIDEO_FILE_NAME }}", "title": "View Video", "title_link": "/home/runner/work/AutomationSlack/AutomationSlack/cypress/videos/${{ env.VIDEO_FILE_NAME }}"},
-                               {"fallback": "Cypress Artifact", "text": "Cypress Execution Artifact", "title": "Download Artifact", "title_link": "https://github.com/Guna98/AutomationSlack/actions/runs/${{github.run_id}}/artifacts"}]'
           SLACK_ICON_EMOJI: ':smiley:'
           SLACK_COLOR: ${{ job.status }}
           
