@@ -11,7 +11,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v6 # use the explicit version number
         with:
-          command: npm run run:smoke
+          command: npm run smoke
       - name: Uploading artifact
         uses: actions/upload-artifact@v4
         if: always()
